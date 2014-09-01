@@ -1,6 +1,6 @@
 {
   "name": "edools-grunt-server",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Edools theme development server plugin",
   "repository": {
     "type": "git",

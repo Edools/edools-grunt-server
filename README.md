@@ -27,7 +27,7 @@ grunt.initConfig({
   edools_server: {
     your_target: {
       options: {
-        paramsPath: 'test/fixtures/params.json',
+        paramsPath: 'params.json',
         port: 9000,
         hostname: '0.0.0.0',
         livereload: 35729,

@@ -53,8 +53,7 @@ module.exports = function (grunt) {
 
     release: {
       options: {
-        npm: true,
-        bumpBower: true
+        npm: true
       }
     }
   });

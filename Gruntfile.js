@@ -35,7 +35,6 @@ module.exports = function (grunt) {
     edools_server: {
       extending_connect: {
         options: {
-          paramsPath: 'test/fixtures/params.json',
           port: 9000,
           hostname: '0.0.0.0',
           livereload: 35729,

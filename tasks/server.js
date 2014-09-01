@@ -14,14 +14,13 @@ module.exports = function (grunt) {
   // creation: http://gruntjs.com/creating-tasks
 
   grunt.registerMultiTask('edools_server', 'Edools theme development server plugin', function () {
-
     var self = this,  target = {},
       paramsMiddleware = function (req, res, next) {
         if(req.url !== '/themes/params') {
           return next();
         }
 
-        var params = grunt.file.readJSON(self.options().paramsPath || 'params.json');
+        var params = grunt.file.readJSON('params.json');
         res.end(JSON.stringify(params));
       };
 

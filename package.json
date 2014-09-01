@@ -32,7 +32,7 @@
   "scripts": {
     "test": "grunt test"
   },
-  "dependencies": {
+  "peerDependencies": {
     "grunt-contrib-connect": "^0.8.0"
   }
 }

@@ -8,8 +8,7 @@
 
 'use strict';
 
-var extendPlugin = require('extend-grunt-plugin'),
-  connect = require('../node_modules/grunt-contrib-connect/tasks/connect');
+var connect = require('../node_modules/grunt-contrib-connect/tasks/connect');
 
 module.exports = function (grunt) {
 

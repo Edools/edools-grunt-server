@@ -8,8 +8,6 @@
 
 'use strict';
 
-var connect = require('../node_modules/grunt-contrib-connect/tasks/connect');
-
 module.exports = function (grunt) {
 
   // Please see the Grunt documentation for more information regarding task

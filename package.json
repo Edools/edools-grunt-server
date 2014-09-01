@@ -2,16 +2,20 @@
   "name": "edools-grunt-server",
   "version": "0.0.2",
   "description": "Edools theme development server plugin",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Edools/edools-grunt-server.git"
+  },
   "author": {
     "name": "Diogo Beda",
-    "email": "diogo.fbeda@gmail.com",
-    "url": ""
+    "email": "diogo.fbeda@gmail.com"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "edools",
+    "server"
   ],
-  "main": "Gruntfile.js",
+  "main": "tasks/server.js",
   "engines": {
     "node": ">= 0.8.0"
   },

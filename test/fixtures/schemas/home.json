@@ -1,0 +1,3 @@
+{
+  "cursosPromocao": "schoolProducts.filter(hasCategory('Promoção'))"
+}

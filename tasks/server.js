@@ -41,8 +41,10 @@ module.exports = function (grunt) {
         }
 
         var options = self.data.options,
-          paramsPath = options.paramsPath || 'params.json',
-          templatesPath = options.appPath + '/templates',
+          paramsPath = options.paramsPath || 'params.json';
+
+        options.appPath = options.appPath || 'app';
+        var templatesPath = options.appPath + '/templates',
           schemasPath = options.appPath + '/schemas',
           schemas = {}, params;
 

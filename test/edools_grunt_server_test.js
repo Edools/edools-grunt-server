@@ -43,6 +43,17 @@ function get(url, done) {
     test.ifError(value)
 */
 
+var paramsFile = grunt.file.readJSON('test/fixtures/test.json');
+paramsFile.schemas = {
+  home: grunt.file.readJSON('test/fixtures/schemas/home.json'),
+  student: {
+    login: {},
+    dashboard: {
+      enrollments: {}
+    }
+  }
+};
+
 exports.edools_grunt_server = {
   extending_connect: function (test) {
     test.expect(2);
@@ -73,8 +84,7 @@ exports.edools_grunt_server = {
       test.ok(body, 'body should be a valid JSON');
 
       var parsedBody = JSON.parse(body);
-      test.deepEqual(parsedBody, grunt.file.readJSON('params.json'), 'should have a school property');
-
+      test.deepEqual(parsedBody, paramsFile, 'should be equal to the test JSON');
       test.done();
     });
   }

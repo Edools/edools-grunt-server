@@ -48,38 +48,39 @@ module.exports = function (grunt) {
           schemasPath = options.appPath + '/schemas',
           schemas = {}, params;
 
-        grunt.file.recurse(templatesPath, function (absPath, rootDir, subDir, filename) {
-          var templateName = stripExtension(filename),
-            schemaName = templateName + '.json',
-            schemaPath = [schemasPath, subDir, schemaName].join('/'),
-            objectToFill;
+        if(grunt.file.exists(templatesPath)) {
+          grunt.file.recurse(templatesPath, function (absPath, rootDir, subDir, filename) {
+            var templateName = stripExtension(filename),
+              schemaName = templateName + '.json',
+              schemaPath = [schemasPath, subDir, schemaName].join('/'),
+              objectToFill;
 
-          if (subDir === undefined) {
-            schemas[templateName] = grunt.file.exists(schemaPath) ? grunt.file.readJSON(schemaPath) : {};
-          } else {
-            var subdirs = subDir.split('/'),
-              len = subdirs.length,
-              lastObj = schemas;
+            if (subDir === undefined) {
+              schemas[templateName] = grunt.file.exists(schemaPath) ? grunt.file.readJSON(schemaPath) : {};
+            } else {
+              var subdirs = subDir.split('/'),
+                len = subdirs.length,
+                lastObj = schemas;
 
-            subdirs.forEach(function (dir, index) {
-              if(lastObj[dir] === undefined) {
-                lastObj[dir] = {};
-              }
+              subdirs.forEach(function (dir, index) {
+                if(lastObj[dir] === undefined) {
+                  lastObj[dir] = {};
+                }
 
-              if(index+1 === len) {
-                lastObj[dir][templateName] = grunt.file.exists(schemaPath) ? grunt.file.readJSON(schemaPath) : {};
-              }
+                if(index+1 === len) {
+                  lastObj[dir][templateName] = grunt.file.exists(schemaPath) ? grunt.file.readJSON(schemaPath) : {};
+                }
 
-              lastObj = lastObj[dir];
-            });
-          }
-        });
+                lastObj = lastObj[dir];
+              });
+            }
+          });
+        }
 
         if(grunt.file.exists(paramsPath)) {
           params = grunt.file.readJSON(paramsPath);
           params.schemas = schemas;
         }
-
 
         res.end(JSON.stringify(params));
       };
